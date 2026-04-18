@@ -61,6 +61,6 @@ A modern dark mode interface improves user experience.
 > Add screenshots here after uploading them to your GitHub repo.
 
 ```md
-![Prediction Dashboard](screenshots/prediction-dashboard.png)
-![Analytics Dashboard](screenshots/analytics-dashboard.png)
+![Prediction Dashboard]
+![Analytics Dashboard]https://github.com/deomwebe/Customer-Churn-Intelligence-Platform/blob/0356d12de80b985b2e6d41441c46706f5664da3d/analytics.png
 ![Batch Upload](screenshots/batch-upload.png)
