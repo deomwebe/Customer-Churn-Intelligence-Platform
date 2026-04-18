@@ -62,5 +62,5 @@ A modern dark mode interface improves user experience.
 
 ```md
 ![Prediction Dashboard]
-![Analytics Dashboard]https://github.com/deomwebe/Customer-Churn-Intelligence-Platform/blob/0356d12de80b985b2e6d41441c46706f5664da3d/analytics.png
+![Analytics Dashboard]https://github.com/deomwebe/Customer-Churn-Intelligence-Platform/blob/main/analytics.png?raw=true
 ![Batch Upload](screenshots/batch-upload.png)
