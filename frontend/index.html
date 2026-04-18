@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Churn Intelligence Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Prediction Dashboard</span>
+      <h1>Customer Churn Intelligence Platform</h1>
+      <p>
+        Predict customer churn, understand the key risk drivers, and get
+        actionable retention recommendations.
+      </p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="/" class="active">Prediction Dashboard</a>
+      <a href="/history.html">History</a>
+      <a href="/analytics.html">Analytics</a>
+      <a href="/batch.html">Batch Upload</a>
+      <button id="theme-toggle" class="theme-toggle" type="button">🌙 Dark Mode</button>
+    </nav>
+
+    <main class="main-content">
+      <section class="form-section">
+        <div class="section-title">
+          <h2>Customer Information</h2>
+          <p>Fill in all customer details to generate a churn prediction.</p>
+        </div>
+
+        <form id="prediction-form">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" max="120" step="1" placeholder="Example: 35" required />
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="tenure">Tenure</label>
+            <input type="number" id="tenure" name="tenure" min="0" step="1" placeholder="Example: 12" required />
+          </div>
+
+          <div class="form-group">
+            <label for="usage_frequency">Usage Frequency</label>
+            <input type="number" id="usage_frequency" name="usage_frequency" min="0" step="1" placeholder="Example: 15" required />
+          </div>
+
+          <div class="form-group">
+            <label for="support_calls">Support Calls</label>
+            <input type="number" id="support_calls" name="support_calls" min="0" step="1" placeholder="Example: 2" required />
+          </div>
+
+          <div class="form-group">
+            <label for="payment_delay">Payment Delay</label>
+            <input type="number" id="payment_delay" name="payment_delay" min="0" step="1" placeholder="Example: 3" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subscription_type">Subscription Type</label>
+            <select id="subscription_type" name="subscription_type" required>
+              <option value="">Select subscription type</option>
+              <option value="Basic">Basic</option>
+              <option value="Standard">Standard</option>
+              <option value="Premium">Premium</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contract_length">Contract Length</label>
+            <select id="contract_length" name="contract_length" required>
+              <option value="">Select contract length</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Annual">Annual</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="total_spend">Total Spend</label>
+            <input type="number" id="total_spend" name="total_spend" min="0" step="0.01" placeholder="Example: 500.00" required />
+          </div>
+
+          <div class="form-group">
+            <label for="last_interaction">Last Interaction</label>
+            <input type="number" id="last_interaction" name="last_interaction" min="0" step="1" placeholder="Example: 10" required />
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="predict-btn">Predict Churn</button>
+            <button type="reset" class="reset-btn">Clear Form</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="result-section">
+        <div class="section-title">
+          <h2>Prediction Result</h2>
+          <p>The model output, explanation, and recommendation will appear here.</p>
+        </div>
+
+        <div id="result-card" aria-live="polite">
+          <p><strong>Prediction:</strong> <span id="prediction">-</span></p>
+          <p><strong>Churn Probability:</strong> <span id="probability">-</span></p>
+
+          <div class="probability-bar-wrapper" aria-hidden="true">
+            <div id="probability-bar" class="probability-bar"></div>
+          </div>
+
+          <p><strong>Risk Level:</strong> <span id="risk-level">-</span></p>
+        </div>
+
+        <div class="charts-panel">
+          <div class="mini-chart-card">
+            <h3>Probability Gauge</h3>
+            <canvas id="probabilityChart"></canvas>
+          </div>
+
+          <div class="mini-chart-card">
+            <h3>Top Driver Impact</h3>
+            <canvas id="driversChart"></canvas>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h3>Top Drivers</h3>
+          <ul id="top-drivers" class="drivers-list">
+            <li>No explanation yet.</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Recommendation</h3>
+          <p id="recommendation">No recommendation yet.</p>
+        </div>
+
+        <div class="info-box">
+          <h3>How to interpret results</h3>
+          <p>
+            A higher churn probability means the customer is more likely to leave.
+            Use the top drivers to understand what influences the prediction, and
+            use the recommendation to guide retention action.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p>Customer Churn Intelligence Platform • FastAPI • Scikit-learn • SHAP</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

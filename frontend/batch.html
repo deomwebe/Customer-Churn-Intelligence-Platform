@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batch Prediction - Customer Churn Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Batch Prediction</span>
+      <h1>CSV Batch Churn Prediction</h1>
+      <p>
+        Upload a CSV file to predict churn for multiple customers at once,
+        review summary metrics, and download the results.
+      </p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="/">Prediction Dashboard</a>
+      <a href="/history.html">History</a>
+      <a href="/analytics.html">Analytics</a>
+      <a href="/batch.html" class="active">Batch Upload</a>
+    </nav>
+
+    <main class="batch-page">
+      <section class="batch-upload-section">
+        <div class="section-title">
+          <h2>Upload CSV File</h2>
+          <p>Upload customer records in CSV format for batch churn prediction.</p>
+        </div>
+
+        <form id="batch-form" class="batch-form">
+          <div class="form-group">
+            <label for="csv-file">Choose CSV File</label>
+            <input
+              type="file"
+              id="csv-file"
+              name="file"
+              accept=".csv,text/csv"
+              required
+            />
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="predict-btn">Upload and Predict</button>
+            <button type="reset" class="reset-btn">Clear</button>
+          </div>
+        </form>
+
+        <div class="info-box">
+          <h3>Required CSV Columns</h3>
+          <p>
+            Age, Gender, Tenure, Usage Frequency, Support Calls, Payment Delay,
+            Subscription Type, Contract Length, Total Spend, Last Interaction
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Accepted Column Formats</h3>
+          <p>
+            You can upload CSV files using either spaced column names such as
+            <strong>Usage Frequency</strong> or underscore-based names such as
+            <strong>Usage_Frequency</strong>.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3>Sample CSV Row</h3>
+          <p>
+            35, Male, 12, 15, 2, 3, Standard, Annual, 500, 10
+          </p>
+        </div>
+      </section>
+
+      <section class="batch-summary-section">
+        <div class="section-title">
+          <h2>Batch Summary</h2>
+          <p>Summary statistics for the uploaded batch prediction job.</p>
+        </div>
+
+        <div class="analytics-grid">
+          <div class="stat-card">
+            <h3>Total Records</h3>
+            <p id="batch-total">0</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>High Risk</h3>
+            <p id="batch-high">0</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Medium Risk</h3>
+            <p id="batch-medium">0</p>
+          </div>
+
+          <div class="stat-card">
+            <h3>Low Risk</h3>
+            <p id="batch-low">0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <div class="section-title">
+          <h2>Batch Results</h2>
+          <p>Predicted churn results for the uploaded customer records.</p>
+        </div>
+
+        <div class="button-group batch-actions">
+          <button id="download-results" class="reset-btn" type="button">
+            Download Results CSV
+          </button>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Tenure</th>
+                <th>Subscription</th>
+                <th>Total Spend</th>
+                <th>Prediction</th>
+                <th>Probability</th>
+                <th>Risk Level</th>
+              </tr>
+            </thead>
+            <tbody id="batch-results-body">
+              <tr>
+                <td colspan="8" class="loading-cell">No batch results yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Customer Churn Intelligence Platform • Batch Prediction</p>
+    </footer>
+  </div>
+
+  <script src="/batch.js"></script>
+</body>
+</html>

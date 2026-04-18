@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics Dashboard - Customer Churn Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Analytics Dashboard</span>
+      <h1>Customer Churn Analytics</h1>
+      <p>
+        Monitor prediction trends, customer risk distribution, and churn insights.
+      </p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="/">Prediction Dashboard</a>
+      <a href="/history.html">History</a>
+      <a href="/analytics.html" class="active">Analytics</a>
+    </nav>
+
+    <main class="analytics-page">
+      <section class="analytics-grid">
+        <div class="stat-card">
+          <h3>Total Predictions</h3>
+          <p id="total-predictions">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Average Churn Probability</h3>
+          <p id="avg-probability">0.00%</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>High Risk Customers</h3>
+          <p id="high-risk-count">0</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Low Risk Customers</h3>
+          <p id="low-risk-count">0</p>
+        </div>
+      </section>
+
+      <section class="charts-grid">
+        <div class="chart-card">
+          <h2>Risk Level Distribution</h2>
+          <canvas id="riskChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h2>Subscription Type Distribution</h2>
+          <canvas id="subscriptionChart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Customer Churn Intelligence Platform • Analytics Dashboard</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/analytics.js"></script>
+</body>
+</html>

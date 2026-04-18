@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prediction History - Customer Churn Platform</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="badge">Prediction History</span>
+      <h1>Saved Churn Predictions</h1>
+      <p>
+        View recent customer churn predictions, risk levels, and probability scores.
+      </p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="/">Prediction Dashboard</a>
+      <a href="/history.html" class="active">History</a>
+    </nav>
+
+    <main class="history-page">
+      <section class="history-section">
+        <div class="section-title">
+          <h2>Recent Predictions</h2>
+          <p>Latest saved customer churn predictions from the system.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Tenure</th>
+                <th>Subscription</th>
+                <th>Total Spend</th>
+                <th>Prediction</th>
+                <th>Probability</th>
+                <th>Risk Level</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody id="history-table-body">
+              <tr>
+                <td colspan="10" class="loading-cell">Loading prediction history...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Customer Churn Intelligence Platform • Prediction History</p>
+    </footer>
+  </div>
+
+  <script src="/history.js"></script>
+</body>
+</html>
